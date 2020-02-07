@@ -33,11 +33,12 @@ int main(int argc, char** argv)
 		viewer->removeAllShapes();
 
 		//stepHighway(egoVelocity,time_us, frame_per_sec, viewer);
+		// cout << "step Highway" << endl;
 		highway.stepHighway(egoVelocity,time_us, frame_per_sec, viewer);
 		viewer->spinOnce(1000/frame_per_sec);
 		frame_count++;
 		time_us = 1000000*frame_count/frame_per_sec;
-		
+
 	}
 
 }

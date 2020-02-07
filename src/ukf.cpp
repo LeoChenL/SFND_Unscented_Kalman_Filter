@@ -60,7 +60,7 @@ UKF::UKF() {
     // Sigma point spreading parameter
     lambda_ = 3-n_aug_;
     // NIS
-    NIS_radar_ = NIS_lidar_ = 0;
+    NIS_radar_ = 0;
     // timestamp
     previous_timestamp_ = 0;
 
