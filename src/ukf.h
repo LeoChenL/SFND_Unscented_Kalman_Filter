@@ -73,7 +73,7 @@ public:
     double NIS_radar_;
 
     // current NIS for laser
-    double NIS_lidar_;
+    // double NIS_lidar_;
 
     // state vector: [pos1 pos2 vel_abs yaw_angle yaw_rate] in SI units and rad
     Eigen::VectorXd x_;

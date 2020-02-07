@@ -197,18 +197,13 @@ void UKF::ProcessMeasurement(MeasurementPackage meas_package) {
        UpdateRadarState(meas_package.raw_measurements_);
 
        // update NIS
-       // NIS_radar_ = (meas_package.raw_measurements_-z_pred_).transpose()*
-       //              S_.inverse()*(meas_package.raw_measurements_-z_pred_);
-       // std::cout << "NIS Radar = " << NIS_radar_ << std::endl;
+       NIS_radar_ = (meas_package.raw_measurements_-z_pred_).transpose()*
+                    S_.inverse()*(meas_package.raw_measurements_-z_pred_);
+       std::cout << "NIS Radar = " << NIS_radar_ << std::endl;
    }
    else if (meas_package.sensor_type_ == MeasurementPackage::LASER) {
        std::cout << "Update Step Lidar" << std::endl;
        UpdateLidarState(meas_package.raw_measurements_);
-
-       // update NIS
-       // NIS_laser_ = (meas_package.raw_measurements_-z_pred_).transpose()*
-       //              S_.inverse()*(meas_package.raw_measurements_-z_pred_);
-       // std::cout << "NIS LiDAR = " << NIS_lidar_ << std::endl;
    }
 }// End ProcessMeasurement
 
